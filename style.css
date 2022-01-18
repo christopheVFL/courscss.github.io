@@ -1,0 +1,166 @@
+/*Fil rouge: selecteur, dimension, couleurs*/
+/*Texte h1*/
+/*Background h1,body & main*/
+/*Boxes main*/
+/*Positionning*/
+/*Flex*/
+/*Grid*/
+/*Pseudo classe*/
+/*Responsive*/
+/*débug*/
+
+/*importation de style de police*/
+@import url('https://fonts.googleapis.com/css2?family=Stick+No+Bills&display=swap');
+h1{
+    /*texte transformer en majuscule*/
+    text-transform: uppercase;
+    /*espacement entre les lettre*/
+    letter-spacing: 2px;
+    /*taille du texte*/
+    font-size: 2.5rem;
+    /*couleur de texte*/
+    color: rgb(139, 0, 0);
+    /*ombre de texte*/
+    text-shadow: 5px 0 0 rgba(65, 207, 250, 0.514);
+    /*alignement du texte*/
+    text-align: center;
+    /*mise en forme du texte:*/ 
+    font-weight: normal;
+    /*police de texte*/
+    font-family: 'Stick No Bills', sans-serif;
+    /*couleur arriere plan*/
+    background-color: moccasin;
+}
+body{
+    /*image de fond*/
+    background-image: url(/assets/sunset.jpg);
+    /* hauteur image */
+    height: 100%;
+
+}
+main{
+    background-color: moccasin;
+    /*largeur de fond*/
+    width: 90%;
+    /*hauteur de fond*/
+    min-height: 200px;
+    /*marge exterieur haut-bas 1Opx/droite-gauche centré*/
+    margin: 10px auto;
+    /*marge interieur haut-bas-droite-gauche 15px*/
+    padding: 15px ;
+    /*arondir les bord de la boxe*/
+    border-radius: 20px;
+    /*ombre de la boxe*/
+    box-shadow: 10px 5px 20px red; 
+}
+.positioning, .flexbox, .grid{
+    border: solid 2px skyblue;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+/*************Positioning*************/
+.positioning{
+    position: relative;
+}
+#circle{
+    height: 60px;
+    width: 60px;
+    background-color: skyblue;
+    padding: 20px;
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    right: 70px;
+}
+#rectangle{
+    height: 15px;
+    width: 100px;
+    background: slateblue;
+    padding: 20px;
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    /*centré le rectangle sur le sens de la largeur X*/
+    transform: translateX(-50%);
+}
+/*************Flexbox****************/
+ul{
+    display: flex; /*alignement en ligne*/
+    justify-content: space-around; /*espacment entre chaque element*/
+    padding: 0;
+}
+li{
+    list-style-type: none; /*enlevement des point*/
+    font-size: 0.7rem;
+    height: 160px;
+    width: 160px;
+    background-color: turquoise;
+    /*centrage des liens sur les parents*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/********Grid*****************/
+.grid-container{
+    display: grid;
+    grid-template-columns: 30% 70%; /*prise de place en pourcentage pour img et form*/
+    padding: 20px;
+}
+.img{
+    text-align: center;
+}
+form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1 fr;
+    grid-template-areas: 
+    "i1 i2"
+    "ta ta"
+    "bt bt";
+}
+input, textarea{
+    margin: 5px;
+    height: 45px;
+    border: 1px solid darkblue;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-family: 'Stick No Bills', sans-serif;;
+}
+#firstname{
+    grid-area: i1;
+}
+#surname{
+    grid-area: i2;
+}
+textarea{
+    grid-area: ta;
+}
+input[type="submit"]{
+    grid-area: bt;
+    cursor: pointer; 
+    background-color: cyan;
+    transition: 0.4s; /*durée du changement de couleur*/
+}
+input[type="submit"]:hover{
+    background-color: darkblue;
+    color: white;
+}
+/**********Responsive sur formulaire******************/
+@media screen and (max-width: 730px){
+    .grid-container{
+        display: block;
+    }
+}
+@media screen and (max-width: 580px){
+    form{
+        grid-template-columns: 1fr ;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-areas: 
+        "i1"
+        "i2"
+        "ta"
+        "bt";
+    }
+}
